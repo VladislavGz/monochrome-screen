@@ -37,7 +37,7 @@
     letter-spacing: 4px;
 }
 
-.screen-paragraph::after {
+.screen-paragraph_cursor::after {
     content: '';
     position: absolute;
     display: inline-block;
