@@ -51,9 +51,22 @@
         -1px 1px 4px #060,
         1px -1px 4px #060,
         -1px -1px 4px #060;
+    
+    animation: cursor .8s infinite linear;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
 .screen {
     width: 80%;
     height: 90%;
+}
+
+@keyframes cursor {
+    form {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
