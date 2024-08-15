@@ -37,6 +37,10 @@
     letter-spacing: 4px;
 }
 
+.screen-paragraph {
+    padding-block: 10px;
+}
+
 .screen-paragraph_cursor::after {
     content: '';
     position: absolute;
