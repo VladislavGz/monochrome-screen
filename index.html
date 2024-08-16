@@ -25,7 +25,20 @@ Also, by editing the style.css file, you can change and add your own effects, fo
 как это происходит на монохромных дисплеях, таких как IBM 3270.
 Вы легко можете создать несколько таких экранов на одной странице.
 Также, редактируя файл style.css вы можете изменять и добавлять свои эффекты, шрифты и т.п.</template>
-    <template id="code">const config = {
+    <template id="code">const data = [
+    'Hello world!',
+    document.querySelector('#text-en').content.textContent,
+    getSplitString(120),
+    'Привет мир!',
+    document.querySelector('#text-ru').content.textContent,
+    getSplitString(120),
+    document.querySelector('#code').content.textContent,
+    getSplitString(120),
+    'Examples!',
+    document.querySelector('#examples').content.textContent,
+];
+
+const config = {
     printTime: 0,
 };
 
