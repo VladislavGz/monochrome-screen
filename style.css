@@ -16,10 +16,10 @@
 }
 
 .screen-font {
-    font-family: sans-serif;
+    font-family: monospace;
     font-weight: 100;
     font-size: 14px;
-    letter-spacing: 3px;
+    /* letter-spacing: 3px; */
 
     color: #0f0;
     filter: blur(0px);
@@ -38,7 +38,9 @@
 }
 
 .screen-paragraph {
-    padding-block: 10px;
+    padding-bottom: 20px;
+    white-space: pre-wrap;
+    text-wrap: nowrap;
 }
 
 .screen-paragraph_cursor::after {
@@ -63,6 +65,14 @@
 .screen {
     width: 80%;
     height: 90%;
+    padding: 20px;
+    border: 1px solid #0f0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.screen::-webkit-scrollbar {
+    display: none;
 }
 
 @keyframes cursor {
