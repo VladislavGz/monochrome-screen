@@ -64,7 +64,7 @@ function getSplitString(count) {
 async function addParagraph(screen, str) {
     const p = paragraphTemplate.cloneNode();
     screen.append(p);
-    if (p.previousElementSibling) p.previousElementSibling.classList.remove('screen-paragraph_cursor');
+    p.previousElementSibling?.classList.remove('screen-paragraph_cursor');
     for (let c of str) {
         await addSymbol(p, c);
     }
