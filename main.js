@@ -1,27 +1,51 @@
 const data = [
-    'hello world',
-    'data data\ndata data data data\ndata data data data data data\ndata data data\ndata data data data data data\ndata data data data\ndata data data data data '
+    'Hello world!',
+    document.querySelector('#text-en').content.textContent,
+    getSplitString(120),
+    'Привет мир!',
+    document.querySelector('#text-ru').content.textContent,
+    getSplitString(120),
+    document.querySelector('#code').content.textContent,
+    getSplitString(120),
+    'Examples!',
+    document.querySelector('#examples').content.textContent,
 ];
 
 const config = {
-    printTime: 10,
+    printTime: 0,
 };
-
 
 const paragraphTemplate = document.querySelector('#screen-paragraph-template').content.querySelector('.screen-paragraph');
 const screenElem = document.querySelector('.screen');
 
-function addSymbol (paragraph, symbol) {
+/**
+ * 
+ * @param {HTMLParagraphElement} paragraph 
+ * @param {String} symbol 
+ * @returns {Promise}
+ */
+function addSymbol(paragraph, symbol) {
     return new Promise(resolve => {
         setTimeout(() => {
+            const screen = paragraph.parentElement;
             if (symbol === '\n') symbol = '<br>';
             paragraph.innerHTML += symbol;
+            screen.scrollTop = screen.scrollHeight - screen.offsetHeight;
             resolve();
         }, config.printTime);
     });
 }
 
-async function addParagraph (screen, str) {
+function getSplitString(count) {
+    return '-'.repeat(count);
+}
+
+/**
+ * 
+ * @param {HTMLElement} screen 
+ * @param {String} str 
+ */
+async function addParagraph(screen, str) {
     const p = paragraphTemplate.cloneNode();
     screen.append(p);
     if (p.previousElementSibling) p.previousElementSibling.classList.remove('screen-paragraph_cursor');
@@ -30,4 +54,15 @@ async function addParagraph (screen, str) {
     }
 }
 
-addParagraph(screenElem, data[1]);
+/**
+ * 
+ * @param {HTMLElement} screen 
+ * @param {String []} strArr 
+ */
+async function addParagraphList(screen, strArr) {
+    for (let i = 0; i < strArr.length; i++) {
+        await addParagraph(screen, strArr[i]);
+    }
+}
+
+addParagraphList(screenElem, data);
